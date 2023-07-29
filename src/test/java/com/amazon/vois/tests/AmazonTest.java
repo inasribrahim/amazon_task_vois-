@@ -1,5 +1,6 @@
 package com.amazon.vois.tests;
 
+import com.amazon.vois.utils.generate_data.GenerateData;
 import net.sourceforge.tess4j.TesseractException;
 import org.testng.annotations.Test;
 
@@ -8,12 +9,13 @@ import java.io.IOException;
 import static org.testng.Assert.assertEquals;
 
 public class AmazonTest extends BaseTest{
+    GenerateData generateData = new GenerateData();
     static int cardShoppingActualNumber = 0 ;
 
     /*VOIS Scenario 1 */
 
     @Test
-    public void verifyScenario1() throws TesseractException, IOException, InterruptedException {
+    public void verifyThatUserSearchItemAndAbleToAddedToCartCorrectly() throws TesseractException, IOException, InterruptedException {
         String inputSearch = "car accessories";
         int firstSearchResult = 1;
         browser.amazon.captchaScreen.solveCaptcha();
@@ -65,6 +67,26 @@ public class AmazonTest extends BaseTest{
 
     }
 
+    @Test
+    public void verifyThatUserCannotLoginWithValidButNotRegisteredEmail(){
+        String actualEmailNotFoundErrorMessage = "We cannot find an account with that email address";
+        browser.amazon.home.clickOnSignInButton();
+        assertEquals(browser.amazon.home.getSignIn()
+                .enterEmailAddress(generateData.generateEmail())
+                .clickOnContinueButton()
+                .emailNotFoundErrorMessage(),actualEmailNotFoundErrorMessage);
+    }
 
+    @Test
+    public void VerifyThatYouCannotSeeYourOrdersAndYourAddressesIfYouAreNotSigned() throws  InterruptedException {
+        String refOrderNotSignedLink = "https://www.amazon.com/ap/signin";
+        assertEquals(refOrderNotSignedLink,browser.amazon.home.mouseHoverOnAccountList().clickOnOrders().getCurrentUrl().split("\\?")[0]);
+
+        browser.amazon.home.back();
+        assertEquals(false,browser.amazon.home.mouseHoverOnAccountList().yourAddressIsExistedOrNot());
+
+        assertEquals("Your Lists",browser.amazon.home.mouseHoverOnAccountList().getYourListText());
+
+    }
 
 }

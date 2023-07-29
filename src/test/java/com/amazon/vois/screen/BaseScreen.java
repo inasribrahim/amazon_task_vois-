@@ -54,4 +54,13 @@ public class BaseScreen {
         executor = (JavascriptExecutor) DriverManager.getWebDriver();
         executor.executeScript("arguments[0].click();", link);
     }
+
+    public String getCurrentUrl(){
+        return DriverManager.getWebDriver().getCurrentUrl();
+    }
+
+    public void back() throws InterruptedException {
+        DriverManager.getWebDriver().navigate().back();
+        waitUtils.sleep(8000);
+    }
 }
