@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <test verbose="2" preserve-order="true" name="Amazon-Assessment">
+        <classes>
+            <class name="com.amazon.vois.tests.AmazonTest">
+                <methods>
+                    <include name="verifyThatUserSearchItemAndAbleToAddedToCartCorrectly"/>
+                    <include name="verifyThatUserCanAddProductFromTodayLivesAmazonOffers"/>
+                    <include name="verifyThatUserSearchItemAndChooseQuantityThenAddedToCartCorrectly"/>
+                    <include name="verifyThatUserCannotLoginWithValidButNotRegisteredEmail"/>
+                    <include name="VerifyThatYouCannotSeeYourOrdersAndYourAddressesIfYouAreNotSigned"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
