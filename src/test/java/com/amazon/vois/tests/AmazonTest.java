@@ -19,14 +19,14 @@ public class AmazonTest extends BaseTest{
         browser.amazon.captchaScreen.solveCaptcha();
          browser.amazon.home.getSearch().clickOnSearchField()
                 .enterTextInSearch(inputSearch)
-                .clickOnFirstLinkInSearchResult(firstSearchResult);
+                .clickOnProductLinkInSearchResult(firstSearchResult);
 
 
-        String firstProductTitle  = browser.amazon.productsDetails.getFirstProductTitle(firstSearchResult);
-        double firstPrice = browser.amazon.productsDetails.getFirstPrice(firstSearchResult);
+        String firstProductTitle  = browser.amazon.productsDetails.getProductTitle(firstSearchResult);
+        double firstPrice = browser.amazon.productsDetails.getPrice(firstSearchResult);
 
 
-        browser.amazon.productsDetails.clickOnFirstResult(firstSearchResult)
+        browser.amazon.productsDetails.clickOnProductLinkResult(firstSearchResult)
                     .clickOnAddToCardButton()
                     .clickOnCloseCartShopping()
                     .clickOnGoToCartButton();
@@ -64,5 +64,7 @@ public class AmazonTest extends BaseTest{
         browser.amazon.productsDetails.clickOnAddToCardButton().clickOnGoToCartButton();
 
     }
+
+
 
 }

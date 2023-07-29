@@ -19,8 +19,8 @@ public class BaseTest {
         Driver.setBrowserResolution();
     }
 
-    @AfterTest(alwaysRun = true)
-    protected void tearDown() {
-        Driver.closeDriver();
-    }
+//    @AfterTest(alwaysRun = true)
+//    protected void tearDown() {
+//        Driver.closeDriver();
+//    }
 }

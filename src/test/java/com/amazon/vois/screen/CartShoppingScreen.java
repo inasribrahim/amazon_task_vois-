@@ -16,7 +16,8 @@ public class CartShoppingScreen extends BaseScreen {
         return this;
     }
 
-    public String getProductTitleNameIsExistedInCartSopping(String name){
+    public String getProductTitleNameIsExistedInCartSopping(String name) throws InterruptedException {
+        waitUtils.sleep(3000);
         String nameExpected = "";
         String text = getElementText(productTitle);
             if (name.substring(0,15).contains(text.substring(0,15))){

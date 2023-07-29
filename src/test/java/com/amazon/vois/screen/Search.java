@@ -14,7 +14,7 @@ public class Search extends BaseScreen{
         return this;
     }
 
-    public void clickOnFirstLinkInSearchResult(int index) throws InterruptedException {
+    public void clickOnProductLinkInSearchResult(int index) throws InterruptedException {
         waitUtils.sleep(5000);
         getElements(searchResults).get(1 - index).click();
     }
