@@ -1,6 +1,6 @@
 # Amazon Automation Framework Task - VOIS
 
-    * Pratise amzon website 
+
 
 ## Running tests through testng xml
 
@@ -12,4 +12,4 @@
 
 ## Running allure server
 
-    * Navigate to project directory and run 'appium serve'
+    * Navigate to project directory and run 'allure serve'
